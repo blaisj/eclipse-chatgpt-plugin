@@ -235,6 +235,7 @@ public class OpenAIStreamJavaHttpClient
                     .timeout( Duration.ofSeconds( configuration.getRequestTimoutSeconds() ) )
                     .version(HttpClient.Version.HTTP_1_1)
     				.header("Authorization", "Bearer " + model.apiKey())
+                    .header( "Api-Key", model.apiKey() )
     				.header("Accept", "text/event-stream")
     				.header("Content-Type", "application/json")
     				.POST(HttpRequest.BodyPublishers.ofString(requestBody))
